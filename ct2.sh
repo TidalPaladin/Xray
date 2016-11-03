@@ -2,6 +2,14 @@
 channel=2
 total_steps=2220
 
+lightOn()
+{
+	sudo /home/pi/kpl -r 10 etekcity 1 1
+}
+lightOff()
+{
+	sudo /home/pi/kpl -r 10 etekcity 1 0
+}
 beamOn()
 {
 	sudo /home/pi/kpl -r 5 etekcity $channel 1
@@ -9,11 +17,11 @@ beamOn()
 
 beamOff()
 {
-	sudo /home/pi/kpl -r 10 etekcity $channel 0
+	sudo /home/pi/kpl -r 30 etekcity $channel 0
 }
 setAperture()
 {
-	gphoto2 --set-config capture-on --set-config f-number=$1
+	gphoto2 --set-config capture-on --set-config-index /main/capturesettings/f-number=$1
 }
 setIso()
 {
@@ -121,9 +129,10 @@ elif [ $1 == "set" ]; then
 
 elif [ $1 == "capture" ]; then
 	#shutter=$(getShutter)
-	shutter=2
+	shutter=3
+	lightOff &
 	setShutter $shutter
-	setIso 400
+	setIso 3200
 	gphoto2 --set-config capturetarget=0
 	if [[ $shutter -le 3 ]]; then
 		captureToPi &>/dev/null
@@ -131,6 +140,7 @@ elif [ $1 == "capture" ]; then
 		beamOn &>/dev/null
 		sleep $(awk "BEGIN {print $shutter-0.7; exit}")
 		beamOff &>/dev/null
+		lightOn
 	else
 		echo "Error: Shutter speed $shutter greater than 3"
 	fi
