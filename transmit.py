@@ -16,11 +16,13 @@ def transmit(sequence, pin, repeat, high, low, period_t) :
     for i in range(0,repeat) :
         bin_list = list(sequence)
         for bit in bin_list :
-            t0 = wpi.micros()
-            wpi.digitalWrite(pin,1)
             if bit == "1" :
+                t0 = wpi.micros()
+                wpi.digitalWrite(pin,1)
                 custom_delay(high-(wpi.micros()-t0))
             else:
+                t0 = wpi.micros()
+                wpi.digitalWrite(pin,1)
                 custom_delay(low-(wpi.micros()-t0))
             wpi.digitalWrite(pin,0)
             time = wpi.micros()-t0
