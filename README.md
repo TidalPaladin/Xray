@@ -12,6 +12,11 @@ and polish this repository into a ready to use X-ray controller.
 
 Below is an example image
 
+|    |   |
+| ------------- | ------------- |
+|<img src="images/drill.png" alt="drill" align="center" width="300" style='margin:100px auto'/> | <img src="images/keurig.jpg" alt="keurig" align="center" width="400" style="margin:100px auto"/>|
+|<img src="images/drill_scope.gif" alt="drill scope" width="400"/> | <img src="images/rubiks_ct.gif" alt="rubiks ct" width="300"/>|
+
 ## Image Capture
 
 Image capture is done using a scintillator and a DSLR. The
