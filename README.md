@@ -10,7 +10,12 @@ implemented. I presently live in an apartment which makes the testing
 of X-ray devices prohibitive. I hope to resume this project one day
 and polish this repository into a ready to use X-ray controller.
 
-Below is an example image
+Below are some example images. Also included below is an attempt at
+imaging a Rubik's cube through computed tomography. The animation
+traverses slices from top to bottom, finally passing through a solid
+cylindrical stand that the Rubiks' cube was sitting on. Capture of
+CT images proved difficult as it requires a means of precisely
+rotating the target and involves the capture of nearly 100 images.
 
 |    |   |
 | ------------- | ------------- |
